@@ -1,0 +1,29 @@
+<h1>Listado de Autores</h1>
+
+<!-- TODO: Implementar que los autores se puedan listar por orden alfabetico -->
+<!-- TODO: Por ej: Listar solo los que empiecen con A y asi. -->
+
+<p-dataView #dv [value]="authors">
+  <ng-template let-author pTemplate="listItem">
+      <div class="col-12">
+          <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+              <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="author.url
+              " [alt]="author.name" />
+              <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                  <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                      <div class="text-2xl font-bold text-900">{{ author.name }}</div>                      
+                      <div class="flex align-items-center gap-3">
+                          <span class="flex align-items-center gap-2">
+                              <i class="pi pi-calendar"></i>
+                              <span class="font-semibold">{{ author.birthday }}</span>                              
+                          </span>
+                      </div>
+                  </div>
+                  <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                      <button pButton icon="pi pi-plus" class="md:align-self-end mb-2 p-button-rounded" [routerLink]="'/library/books/'"></button> <!-- TODO: Hacer que rediriga a un listado de libros por autor. -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-dataView>
